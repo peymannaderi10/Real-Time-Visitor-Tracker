@@ -3,6 +3,7 @@ const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
+app.set('trust proxy', true); // added after for deployment purposes.
 const PORT = process.env.PORT || 3000;
 const ACCESS_KEY = process.env.API_KEY;
 
@@ -30,11 +31,13 @@ app.get('/api/geolocation/:ip', async (req, res) => {
   }
 });
 
-// Endpoint to get the client's IP address
+// Endpoint to use my IP, added this for testing purposes (can skip)
 app.get('/api/myip', (req, res) => {
-  // Get client IP from the request
-  const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+  // Get users IP from the request  **changed after for deployment purposes***
+  const forwarded = req.headers['x-forwarded-for'];
+  const ip = forwarded ? forwarded.split(/, /)[0] : req.socket.remoteAddress;
   res.json({ ip });
+
 });
 
 // Serve the main HTML file
