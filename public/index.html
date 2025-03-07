@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IP Geolocation Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <h1>IP Geolocation Tracker</h1>
+  
+  <div class="search-panel">
+    <input type="text" id="ip-input" placeholder="Enter an IP address (e.g., 8.8.8.8)">
+    <button id="search-btn">Lookup IP</button>
+    <button id="my-ip-btn">Use My IP</button>
+  </div>
+  
+  <div id="map"></div>
+  
+  <div class="info-panel">
+    <div class="info-card">
+      <h3>Basic Info</h3>
+      <div id="basic-info">Search for an IP address to view details</div>
+    </div>
+    <div class="info-card">
+      <h3>Location</h3>
+      <div id="location-info"></div>
+    </div>
+    <div class="info-card">
+      <h3>Connection</h3>
+      <div id="connection-info"></div>
+    </div>
+    <div class="info-card">
+      <h3>Additional Info</h3>
+      <div id="additional-info"></div>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
