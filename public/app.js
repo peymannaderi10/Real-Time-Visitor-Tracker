@@ -57,12 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
       
       // Update connection info
       connectionInfo.innerHTML = `
+        <p><strong>Must have premium subscription for this data.</strong></p>
         <p><strong>ASN:</strong> ${data.connection?.asn || 'N/A'}</p>
         <p><strong>ISP:</strong> ${data.connection?.isp || 'N/A'}</p>
       `;
       
       // Update additional info
       additionalInfo.innerHTML = `
+        <p><strong>Must have premium subscription for this data.</strong></p>
         <p><strong>Time Zone:</strong> ${data.time_zone?.id || 'N/A'}</p>
         <p><strong>Current Time:</strong> ${data.time_zone?.current_time || 'N/A'}</p>
         <p><strong>Currency:</strong> ${data.currency?.name || 'N/A'} (${data.currency?.symbol || 'N/A'})</p>
