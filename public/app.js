@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize map
     const map = L.map('map').setView([0, 0], 2);
