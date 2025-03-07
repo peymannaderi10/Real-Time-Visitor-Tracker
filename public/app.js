@@ -1,5 +1,3 @@
-require('dotenv').config();
-
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize map
     const map = L.map('map').setView([0, 0], 2);
@@ -113,13 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const response = await fetch('/api/myip');
         const data = await response.json();
         
-        // Update the input field with the IP
-        ipInput.value = data.ip;
-
         // Then get geolocation data for that IP
         const geoData = await getGeolocation('myip'); // Using our special 'myip' endpoint
         updateUI(geoData);
-
+        
+        // Update the input field with the IP
+        ipInput.value = data.ip;
       } catch (error) {
         console.error('Error getting client IP:', error);
         basicInfo.innerHTML = `<p class="error">Error getting your IP: ${error.message}</p>`;
